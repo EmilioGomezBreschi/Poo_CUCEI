@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"stdio.h": "c",
+		"ostream": "cpp",
+		"iostream": "cpp",
+		"*.tpp": "cpp"
+	},
+	"editor.formatOnSave": true,
+	"C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+	"C_Cpp.errorSquiggles": "enabled"
+}

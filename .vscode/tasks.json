@@ -1,0 +1,58 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build active",
+			"type": "shell",
+			"command": "C:/msys64/ucrt64/bin/g++.exe",
+			"args": [
+				"-std=c++17",
+				"-Wall",
+				"-Wextra",
+				"-Wpedantic",
+				"-g",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}.exe"
+			],
+			"group": { "kind": "build", "isDefault": true },
+			"problemMatcher": ["$gcc"]
+		},
+		{
+			"label": "build folder",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"C:/msys64/ucrt64/bin/g++.exe -std=c++17 -Wall -Wextra -Wpedantic -g \"${fileDirname}\"/*.cpp -o \"${fileDirname}/${fileDirnameBasename}.exe\""
+			],
+			"problemMatcher": ["$gcc"]
+		},
+		{
+			"label": "build folder release",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"C:/msys64/ucrt64/bin/g++.exe -std=c++17 -O2 -DNDEBUG \"${fileDirname}\"/*.cpp -o \"${fileDirname}/${fileDirnameBasename}.exe\""
+			],
+			"problemMatcher": ["$gcc"]
+		},
+		{
+			"label": "build all folders",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-lc",
+				"shopt -s nullglob; for m in */main*.cpp; do d=${m%%/*}; echo \"Compilando $d\"; C:/msys64/ucrt64/bin/g++.exe -std=c++17 -Wall -Wextra -Wpedantic -g \"$d\"/*.cpp -o \"$d/$d.exe\" || exit 1; done"
+			],
+			"problemMatcher": ["$gcc"]
+		},
+		{
+			"label": "clean all",
+			"type": "shell",
+			"command": "bash",
+			"args": ["-lc", "for d in */; do rm -f \"$d\"/*.exe; done"]
+		}
+	]
+}

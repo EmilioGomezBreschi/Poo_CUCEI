@@ -1,0 +1,55 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug (archivo activo .exe)",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+			"args": [],
+			"cwd": "${fileDirname}",
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+			"preLaunchTask": "build active",
+			"externalConsole": false,
+			"setupCommands": [
+				{
+					"description": "Pretty print",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "Debug (carpeta actual)",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${fileDirname}/${fileDirnameBasename}.exe",
+			"args": [],
+			"cwd": "${fileDirname}",
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+			"preLaunchTask": "build folder",
+			"externalConsole": false,
+			"setupCommands": [
+				{
+					"description": "Pretty print",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "Debug (carpeta con args)",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${fileDirname}/${fileDirnameBasename}.exe",
+			"args": ["arg1", "arg2"],
+			"cwd": "${fileDirname}",
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+			"preLaunchTask": "build folder",
+			"externalConsole": false
+		}
+	]
+}
