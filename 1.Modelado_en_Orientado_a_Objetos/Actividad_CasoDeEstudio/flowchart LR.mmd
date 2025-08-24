@@ -1,0 +1,53 @@
+flowchart LR
+  %% Subgrafos para alinear
+  subgraph Left[ ]
+    Cliente["👤 Cliente"]
+    ClientePremium["👤 Cliente Premium"]
+    Admin["👤 Administrador"]
+  end
+
+  subgraph Middle[ ]
+    CU1(("Mostrar detalles del usuario"))
+    CU2(("Calcular costo mensual"))
+    CU3(("Acceso a contenido premium"))
+    CU4(("Gestionar usuarios"))
+  end
+
+  subgraph Right[ ]
+    bd[(Base de Datos)]
+  end
+
+  subgraph Autentificar
+    CU5(("Registrar"))
+    CU6(("Verificar"))
+    CU7(("Iniciar Sesion"))
+    CU8(("Permitir Acceso"))
+    CU9(("Recuperar Contraseña"))
+  end
+
+  %% Relaciones Cliente
+  Cliente --> CU1
+
+  %% Relaciones Administrador
+  Admin --> CU1
+  Admin --> CU2
+  Admin --> CU3
+  Admin --> CU4
+
+  %% Relaciones Cliente Premium
+  ClientePremium --> CU1
+  ClientePremium --> CU3
+
+  %% Relaciones Base de Datos
+  CU1 --> bd
+  CU2 --> bd
+  CU3 --> bd
+  CU4 --> bd
+
+  %% Relaciones Autentificar
+  bd --> CU6
+
+  %% Relaciones internas
+  CU7 --> CU5
+  CU7 --> CU6
+  CU6 --> CU8
