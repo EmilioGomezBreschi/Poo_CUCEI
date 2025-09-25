@@ -12,3 +12,37 @@ AlignConsecutiveAssignments: true
 BraceWrapping:
   AfterFunction: true
   AfterClass: true
+UseTab: Never
+TabWidth: 2
+ContinuationIndentWidth: 2
+
+AccessModifierOffset: -2
+NamespaceIndentation: All
+
+IndentCaseLabels: true
+IndentCaseBlocks: true
+
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceBeforeRangeBasedForLoopColon: true
+
+BreakBeforeBinaryOperators: NonAssignment
+AlignAfterOpenBracket: Align
+BreakStringLiterals: true
+AlwaysBreakBeforeMultilineStrings: true
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerIndentWidth: 2
+Cpp11BracedListStyle: true
+
+IncludeBlocks: Regroup
+SortUsingDeclarations: true
+
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+FixNamespaceComments: true
