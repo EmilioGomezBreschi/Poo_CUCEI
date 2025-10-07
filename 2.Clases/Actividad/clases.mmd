@@ -1,0 +1,94 @@
+
+classDiagram
+    class Cliente {
+        +unsigned int id_cliente
+        +string nombre
+        +string apellido
+        +string telefono
+        +string correo
+        +string direccion
+        +capturar() void
+        +mostrar() void
+        +buscar(id: unsigned int) Cliente
+        +eliminar(id: unsigned int) void
+        +modificar(id: unsigned int) void
+    }
+
+    class Venta {
+        +unsigned int id_venta
+        +unsigned int id_cliente
+        +string fecha
+        +double total
+        +string estado
+        +registrar() void
+        +cancelar() void
+        +facturar() void
+        +generarTicket() void
+    }
+
+    class Factura {
+        +unsigned int id_factura
+        +unsigned int id_venta
+        +string fecha_emision
+        +double monto
+        +string estado
+        +emitir() void
+        +cancelar() void
+        +obtener() Factura
+    }
+
+    class Servicio {
+        +unsigned int id_servicio
+        +string nombre
+        +string descripcion
+        +double precio
+        +registrar() void
+        +actualizar() void
+        +eliminar() void
+        +obtener() Servicio
+    }
+
+    class Producto {
+        +unsigned int id_producto
+        +string nombre
+        +string descripcion
+        +double precio
+        +int stock
+        +registrar() void
+        +actualizarPrecio() void
+        +actualizarStock() void
+        +obtener() Producto
+    }
+
+    class Registro {
+        +unsigned int id_registro
+        +string tipo
+        +unsigned int id_referencia
+        +string fecha
+        +string descripcion
+        +mostrar() void
+        +buscar() Registro
+        +eliminar() void
+        +comprimir() void
+        +descomprimir() void
+    }
+
+    class Usuario {
+        +unsigned int id_usuario
+        +string nombre
+        +string rol
+        +string usuario
+        +string contraseña
+        +registrar() void
+        +autenticar() bool
+        +modificar() void
+        +eliminar() void
+    }
+
+    Cliente --> Venta
+    Venta --> Factura
+    Venta --> Registro
+    Factura --> Registro
+    Servicio --> Registro
+    Producto --> Registro
+    Usuario --> Registro
